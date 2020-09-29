@@ -28,11 +28,18 @@ function setRandomColor() {
 let timerId;
 
 function startSwitch() {
+  switchActiveBtn(refs.stop, refs.start);
   timerId = setInterval(() => {
     return setRandomColor();
   }, 1000);
 }
 
 function stoptSwitch() {
+  switchActiveBtn(refs.start, refs.stop);
   clearInterval(timerId);
+}
+
+function switchActiveBtn(enable, disable) {
+  disable.setAttribute("disabled", "disabled");
+  enable.removeAttribute("disabled");
 }
